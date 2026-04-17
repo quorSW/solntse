@@ -16,10 +16,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .nav-brand{display:flex;align-items:center;gap:12px}
 .nav-brand img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:1.5px solid rgba(242,169,75,.6)}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase;color:var(--warm)}
-.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center}
 .nav-links a{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--mist);transition:color .3s;cursor:pointer}
 .nav-links a:hover{color:var(--sun)}
-.nav-tg{display:flex;align-items:center;gap:5px;color:var(--sun) !important}
+.nav-tg{display:flex;align-items:center;align-self:center;gap:5px;color:var(--sun) !important}
 .nav-tg:hover{opacity:.8}
 .burger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:300}
 .burger span{display:block;width:22px;height:2px;background:var(--warm);border-radius:2px;transition:all .3s}
@@ -93,19 +93,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .sec-line{width:48px;height:2px;background:var(--sun);margin-top:18px}
 
 /* Menu tabs */
-.menu-tabs{display:flex;gap:0;margin-bottom:44px;border-bottom:2px solid var(--mist)}
-.mtab{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;padding:12px 24px;cursor:pointer;color:var(--bark);border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .25s;user-select:none}
-.mtab.active{color:var(--esp);border-bottom-color:var(--sun);font-weight:500}
-.mtab:hover:not(.active){color:var(--esp)}
+.menu-tabs{display:flex;gap:8px;margin-bottom:44px;border-bottom:none;padding:4px;background:var(--mist);border-radius:10px;width:fit-content}
+.mtab{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;padding:10px 22px;cursor:pointer;color:var(--bark);border-radius:7px;border:none;transition:all .25s;user-select:none;background:none}
+.mtab.active{color:var(--esp);background:#fff;font-weight:600;box-shadow:0 2px 8px rgba(44,26,14,.1)}
+.mtab:hover:not(.active){color:var(--esp);background:rgba(255,255,255,.5)}
 
 .menu-panel{display:none}
 .menu-panel.active{display:block}
 
-.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
-.mcard{background:var(--cream);overflow:hidden}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.mcard{background:var(--cream);overflow:hidden;border-radius:10px;box-shadow:0 2px 12px rgba(44,26,14,.07);transition:box-shadow .3s}
 .mcard-imgwrap{overflow:hidden;height:200px;background:var(--mist)}
 .mcard-imgwrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
-.mcard:hover .mcard-imgwrap img{transform:scale(1.07)}
+.mcard:hover .mcard-imgwrap img{transform:scale(1.07)}.mcard:hover{box-shadow:0 6px 24px rgba(44,26,14,.14)}
 .mcard-body{padding:24px 20px}
 .mcard-name{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--esp);margin-bottom:6px;line-height:1.2}
 .mcard-desc{font-size:.68rem;line-height:1.65;color:var(--bark);margin-bottom:16px}
@@ -230,7 +230,7 @@ footer a.tel:hover{color:var(--sun)}
 @media(max-width:480px){
   .hero-title{font-size:2.6rem}
   .hero-btns{flex-direction:column;align-items:flex-start;gap:12px}
-  .menu-grid{grid-template-columns:1fr}
+  .menu-grid{grid-template-columns:1fr;gap:10px}
   .stmp{width:32px;height:32px}
 }
 </style>
@@ -254,7 +254,7 @@ footer a.tel:hover{color:var(--sun)}
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.93 13.89l-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.669h-.613z"/></svg>
       Telegram
     </a></li>
-    <li><a onclick="smoothTo('register')" style="cursor:pointer;background:var(--sun);color:var(--esp);padding:7px 16px;border-radius:4px;font-weight:500;letter-spacing:.12em">Регистрация</a></li>
+    <li><button id="nav-auth-btn" onclick="smoothTo('register')" style="cursor:pointer;background:var(--sun);color:var(--esp);padding:8px 18px;border-radius:5px;font-weight:600;letter-spacing:.12em;font-size:.62rem;text-transform:uppercase;border:none;transition:all .25s">Регистрация</button></li>
   </ul>
 </nav>
 
@@ -786,8 +786,22 @@ footer a.tel:hover{color:var(--sun)}
 
     <div id="reg-success" style="display:none;text-align:center;padding:24px 0">
       <div style="font-size:2.5rem;margin-bottom:12px">🎉</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--sun-l);margin-bottom:8px">Вы зарегистрированы!</div>
-      <div style="font-size:.82rem;color:var(--mist);line-height:1.7">Назовите номер телефона бариста при следующем визите — и получите первый штамп.</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--sun-l);margin-bottom:8px">Добро пожаловать, <span class="succ-name"></span>!</div>
+      <div style="font-size:.82rem;color:var(--mist);line-height:1.7;margin-bottom:20px">Называйте ваш номер телефона бариста при каждом визите — и копите штампы. Каждый 10-й напиток бесплатно!</div>
+      <button onclick="showLoginForm()" style="background:none;border:1px solid rgba(232,217,194,.3);color:var(--mist);padding:10px 20px;border-radius:6px;font-size:.75rem;cursor:pointer;letter-spacing:.1em;margin-top:4px">Это не я? Войти с другим номером</button>
+    </div>
+    <div id="login-form" style="display:none;text-align:left">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--warm);margin-bottom:16px;font-style:italic">Войти по номеру телефона</div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <label style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sun)">Номер телефона</label>
+          <input id="login-phone" type="tel" placeholder="+7 (___) ___-__-__"
+            style="padding:14px 16px;font-size:.95rem;border:2px solid rgba(232,217,194,.2);border-radius:8px;background:rgba(255,255,255,.07);color:var(--warm);outline:none;-webkit-appearance:none"
+            oninput="regFmtPhone(this)" autocomplete="off">
+        </div>
+        <button onclick="doLogin()" style="padding:14px;background:var(--sun);color:var(--esp);border:none;border-radius:8px;font-size:.9rem;font-weight:700;cursor:pointer">Войти</button>
+        <button onclick="showRegForm()" style="background:none;border:1px solid rgba(232,217,194,.2);color:var(--mist);padding:10px;border-radius:8px;font-size:.78rem;cursor:pointer">← Назад к регистрации</button>
+      </div>
     </div>
     <div id="reg-msg" style="margin-top:12px;font-size:.8rem;color:var(--sun);text-align:center;min-height:20px"></div>
   </div>
@@ -800,6 +814,35 @@ const cfg={apiKey:"AIzaSyDxJisF3WjuxbnB4pkIQZejxEdbXZsCCqs",authDomain:"solntse-
 const app=getApps().length?getApps()[0]:initializeApp(cfg);
 const db=getFirestore(app);
 function norm(p){let d=p.replace(/\D/g,'');if(d.startsWith('8'))d='7'+d.slice(1);if(!d.startsWith('7'))d='7'+d;return'+'+d;}
+window.showLoginForm=function(){
+  document.getElementById('reg-form').style.display='none';
+  document.getElementById('reg-success').style.display='none';
+  document.getElementById('login-form').style.display='block';
+  document.getElementById('reg-msg').textContent='';
+};
+window.showRegForm=function(){
+  document.getElementById('login-form').style.display='none';
+  document.getElementById('reg-form').style.display='flex';
+  document.getElementById('reg-msg').textContent='';
+};
+window.doLogin=async function(){
+  const phone=document.getElementById('login-phone').value.trim();
+  const msg=document.getElementById('reg-msg');
+  if(phone.replace(/\D/g,'').length<10){msg.textContent='Введите корректный номер';return;}
+  const key=norm(phone);
+  msg.textContent='Проверяем...';
+  try{
+    const snap=await getDoc(doc(db,'clients',key));
+    if(!snap.exists()){msg.textContent='Номер не найден. Зарегистрируйтесь.';return;}
+    const data=snap.data();
+    saveSession(data.name,key);
+    document.getElementById('login-form').style.display='none';
+    document.getElementById('reg-success').style.display='block';
+    const nameEl=document.querySelector('.succ-name');
+    if(nameEl)nameEl.textContent=data.name;
+    msg.textContent='';
+  }catch(e){msg.textContent='Ошибка. Проверьте соединение.';console.error(e);}
+};
 window.regFmtPhone=function(input){
   let v=input.value.replace(/\D/g,'');if(!v)return;
   if(v.startsWith('8')||v.startsWith('7'))v='7'+v.slice(1);else v='7'+v;
@@ -810,6 +853,45 @@ window.regFmtPhone=function(input){
   if(m[4])f+=m[4];if(m[4].length===2)f+='-';
   if(m[5])f+=m[5];input.value=f;
 };
+// Session helpers
+function saveSession(name,phone){localStorage.setItem('sv_client',JSON.stringify({name,phone}));updateNavAuth();}
+function getSession(){try{return JSON.parse(localStorage.getItem('sv_client'));}catch(e){return null;}}
+function clearSession(){localStorage.removeItem('sv_client');updateNavAuth();}
+function updateNavAuth(){
+  const s=getSession();
+  const btn=document.getElementById('nav-auth-btn');
+  if(!btn)return;
+  if(s){
+    btn.textContent='Привет, '+s.name.split(' ')[0];
+    btn.style.background='rgba(242,169,75,.15)';
+    btn.style.color='var(--sun-l)';
+    btn.style.border='1px solid rgba(242,169,75,.4)';
+    btn.onclick=function(){smoothTo('register');};
+  } else {
+    btn.textContent='Регистрация';
+    btn.style.background='var(--sun)';
+    btn.style.color='var(--esp)';
+    btn.style.border='none';
+    btn.onclick=function(){smoothTo('register');};
+  }
+}
+// Run on page load
+document.addEventListener('DOMContentLoaded',function(){updateNavAuth();showRegState();});
+function showRegState(){
+  const s=getSession();
+  if(!s)return;
+  const form=document.getElementById('reg-form');
+  const succ=document.getElementById('reg-success');
+  const msg=document.getElementById('reg-msg');
+  if(form&&succ){
+    form.style.display='none';
+    succ.style.display='block';
+    // Show name
+    const nameEl=succ.querySelector('.succ-name');
+    if(nameEl)nameEl.textContent=s.name;
+  }
+}
+
 window.regSubmit=async function(){
   const name=document.getElementById('reg-name').value.trim();
   const phone=document.getElementById('reg-phone').value.trim();
@@ -820,8 +902,16 @@ window.regSubmit=async function(){
   msg.textContent='Сохраняем...';
   try{
     const ex=await getDoc(doc(db,'clients',key));
-    if(ex.exists()){msg.textContent='Этот номер уже зарегистрирован — называйте его бариста!';return;}
+    if(ex.exists()){
+      // Уже зарегистрирован — просто войти
+      saveSession(ex.data().name,key);
+      document.getElementById('reg-form').style.display='none';
+      document.getElementById('reg-success').style.display='block';
+      msg.textContent='';
+      return;
+    }
     await setDoc(doc(db,'clients',key),{name,phone:key,stamps:0,since:new Date().toISOString(),history:[],registeredBy:'website'});
+    saveSession(name,key);
     document.getElementById('reg-form').style.display='none';
     document.getElementById('reg-success').style.display='block';
     msg.textContent='';
