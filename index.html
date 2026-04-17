@@ -254,6 +254,7 @@ footer a.tel:hover{color:var(--sun)}
       <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.93 13.89l-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.669h-.613z"/></svg>
       Telegram
     </a></li>
+    <li><a onclick="smoothTo('register')" style="cursor:pointer;background:var(--sun);color:var(--esp);padding:7px 16px;border-radius:4px;font-weight:500;letter-spacing:.12em">Регистрация</a></li>
   </ul>
 </nav>
 
@@ -268,6 +269,7 @@ footer a.tel:hover{color:var(--sun)}
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.93 13.89l-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.833.669h-.613z"/></svg>
     Telegram
   </a>
+  <span onclick="closeMenu();smoothTo('register')" style="background:var(--sun);color:var(--esp);border-radius:6px;font-size:1rem;font-weight:600;letter-spacing:.08em;padding:12px 0;text-align:center;margin-top:6px;display:block;width:100%">Регистрация</span>
 </div>
 
 <!-- HERO -->
@@ -688,22 +690,15 @@ footer a.tel:hover{color:var(--sun)}
         <div class="sc-prog">7 из 10 — осталось 3 чашки</div>
         <div class="sc-reward">10-я чашка — в подарок</div>
       </div>
-      <!-- Wallet — скоро -->
-      <div style="display:flex;flex-direction:column;gap:10px">
+      <!-- Loyalty registration -->
+      <div style="display:flex;flex-direction:column;gap:12px">
         <span style="font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--sun)">Цифровая карта</span>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <a href="#" onclick="alert('Скоро! Карта для Apple Wallet появится здесь.');return false;"
-             style="display:inline-flex;align-items:center;gap:8px;background:#000;color:#fff;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:.65rem;letter-spacing:.05em;transition:opacity .3s" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            Apple Wallet
-          </a>
-          <a href="#" onclick="alert('Скоро! Карта для Google Wallet появится здесь.');return false;"
-             style="display:inline-flex;align-items:center;gap:8px;background:#fff;color:#3c4043;border:1px solid #dadce0;text-decoration:none;padding:10px 18px;border-radius:8px;font-size:.65rem;letter-spacing:.05em;transition:opacity .3s" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/><path d="M23.49 12.27c0-.79-.07-1.54-.19-2.27H12v4.51h6.47c-.29 1.48-1.14 2.73-2.4 3.58l3.66 2.84c2.14-1.97 3.76-4.86 3.76-8.66z" fill="#4285F4"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.66-2.84c-.98.66-2.23 1.06-3.62 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18C3.99 20.53 7.7 23 12 23z" fill="#34A853"/></svg>
-            Google Wallet
-          </a>
-        </div>
-        <p style="font-size:.64rem;color:var(--bark);line-height:1.6">Скоро вы сможете добавить карту лояльности прямо в кошелёк телефона — и всегда иметь её под рукой.</p>
+        <p style="font-size:.8rem;line-height:1.8;color:var(--bark)">Чтобы карта лояльности заработала, зарегистрируйте ваш номер телефона. Бариста будет находить вас по нему и начислять штампы — никаких приложений не нужно.</p>
+        <button onclick="smoothTo('register')"
+          style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--sun);color:var(--esp);border:none;padding:14px 28px;border-radius:8px;font-size:.82rem;font-weight:700;letter-spacing:.1em;cursor:pointer;width:fit-content;transition:background .2s"
+          onmouseover="this.style.background='var(--sun-l)'" onmouseout="this.style.background='var(--sun)'">
+          Зарегистрироваться
+        </button>
       </div>
       <div class="loyalty-perks">
         <div class="perk"><div class="perk-t">День рождения</div><div class="perk-d">Любимый напиток бесплатно в ваш особенный день</div></div>
@@ -757,6 +752,82 @@ footer a.tel:hover{color:var(--sun)}
     <div><span class="info-label">Удобства</span><div class="amenities"><span class="am">Wi-Fi</span><span class="am">Кофе с собой</span><span class="am">Оплата картой</span><span class="am">Парковка</span><span class="am">Pet-friendly</span><span class="am">Розыгрыши</span></div></div>
   </div>
 </section>
+
+
+
+<!-- REGISTRATION -->
+<section id="register" style="background:var(--esp);padding:80px 64px">
+  <div style="max-width:500px;margin:0 auto;text-align:center">
+    <span style="font-size:.62rem;letter-spacing:.35em;text-transform:uppercase;color:var(--sun);display:block;margin-bottom:16px">Программа лояльности</span>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:300;color:var(--warm);margin-bottom:12px;line-height:1.2">Зарегистрируйтесь<br><em style="font-style:italic;color:var(--sun-l)">и копите штампы</em></h2>
+    <p style="font-size:.8rem;color:var(--mist);line-height:1.8;margin-bottom:32px">Каждый 10-й напиток — в подарок. Зарегистрируйте номер один раз, и бариста будет находить вас по нему.</p>
+
+    <div id="reg-form" style="display:flex;flex-direction:column;gap:14px;text-align:left">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <label style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sun)">Ваше имя</label>
+        <input id="reg-name" type="text" placeholder="Например: Анна"
+          style="padding:14px 16px;font-size:.95rem;border:2px solid rgba(232,217,194,.2);border-radius:8px;background:rgba(255,255,255,.07);color:var(--warm);outline:none;transition:border-color .2s;-webkit-appearance:none"
+          onfocus="this.style.borderColor='var(--sun)'" onblur="this.style.borderColor='rgba(232,217,194,.2)'"
+          autocomplete="off">
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <label style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sun)">Номер телефона</label>
+        <input id="reg-phone" type="tel" placeholder="+7 (___) ___-__-__"
+          style="padding:14px 16px;font-size:.95rem;border:2px solid rgba(232,217,194,.2);border-radius:8px;background:rgba(255,255,255,.07);color:var(--warm);outline:none;transition:border-color .2s;-webkit-appearance:none"
+          onfocus="this.style.borderColor='var(--sun)'" onblur="this.style.borderColor='rgba(232,217,194,.2)'"
+          oninput="regFmtPhone(this)" autocomplete="off">
+      </div>
+      <button onclick="regSubmit()"
+        style="padding:15px;background:var(--sun);color:var(--esp);border:none;border-radius:8px;font-size:.9rem;font-weight:700;cursor:pointer;margin-top:4px;transition:background .2s"
+        onmouseover="this.style.background='var(--sun-l)'" onmouseout="this.style.background='var(--sun)'">
+        Зарегистрироваться
+      </button>
+    </div>
+
+    <div id="reg-success" style="display:none;text-align:center;padding:24px 0">
+      <div style="font-size:2.5rem;margin-bottom:12px">🎉</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--sun-l);margin-bottom:8px">Вы зарегистрированы!</div>
+      <div style="font-size:.82rem;color:var(--mist);line-height:1.7">Назовите номер телефона бариста при следующем визите — и получите первый штамп.</div>
+    </div>
+    <div id="reg-msg" style="margin-top:12px;font-size:.8rem;color:var(--sun);text-align:center;min-height:20px"></div>
+  </div>
+</section>
+
+<script type="module">
+import { initializeApp, getApps } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+import { getFirestore, doc, getDoc, setDoc } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+const cfg={apiKey:"AIzaSyDxJisF3WjuxbnB4pkIQZejxEdbXZsCCqs",authDomain:"solntse-vnutri.firebaseapp.com",projectId:"solntse-vnutri",storageBucket:"solntse-vnutri.firebasestorage.app",messagingSenderId:"61411069001",appId:"1:61411069001:web:1b4ceea8da7766c8c7c398"};
+const app=getApps().length?getApps()[0]:initializeApp(cfg);
+const db=getFirestore(app);
+function norm(p){let d=p.replace(/\D/g,'');if(d.startsWith('8'))d='7'+d.slice(1);if(!d.startsWith('7'))d='7'+d;return'+'+d;}
+window.regFmtPhone=function(input){
+  let v=input.value.replace(/\D/g,'');if(!v)return;
+  if(v.startsWith('8')||v.startsWith('7'))v='7'+v.slice(1);else v='7'+v;
+  const m=v.match(/^(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+  let f='+'+m[1];
+  if(m[2])f+=' ('+m[2];if(m[2].length===3)f+=') ';
+  if(m[3])f+=m[3];if(m[3].length===3)f+='-';
+  if(m[4])f+=m[4];if(m[4].length===2)f+='-';
+  if(m[5])f+=m[5];input.value=f;
+};
+window.regSubmit=async function(){
+  const name=document.getElementById('reg-name').value.trim();
+  const phone=document.getElementById('reg-phone').value.trim();
+  const msg=document.getElementById('reg-msg');
+  if(!name){msg.textContent='Введите ваше имя';return;}
+  if(phone.replace(/\D/g,'').length<10){msg.textContent='Введите корректный номер';return;}
+  const key=norm(phone);
+  msg.textContent='Сохраняем...';
+  try{
+    const ex=await getDoc(doc(db,'clients',key));
+    if(ex.exists()){msg.textContent='Этот номер уже зарегистрирован — называйте его бариста!';return;}
+    await setDoc(doc(db,'clients',key),{name,phone:key,stamps:0,since:new Date().toISOString(),history:[],registeredBy:'website'});
+    document.getElementById('reg-form').style.display='none';
+    document.getElementById('reg-success').style.display='block';
+    msg.textContent='';
+  }catch(e){msg.textContent='Ошибка. Проверьте интернет-соединение.';console.error(e);}
+};
+</script>
 
 <footer>
   <div><div class="footer-brand">Солнце Внутри</div><div class="footer-tag">Кофейня · Батайск</div></div>
